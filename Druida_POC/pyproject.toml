@@ -4,18 +4,33 @@ build-backend = "hatchling.build"
 
 [project]
 name = "druida"
-version = "0.0.1"
+version = "0.0.5"
 authors = [
   { name="Jorge Cardenas", email="jorge.cardenas.l@mail.pucv.cl" },
 ]
 description = "Metasurface-design artificial intelligence"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+  "wheel",
+  "pillow",
+  "numpy<=1.24.3",
+  "pandas~=2.1.0", 
+  "tensorflow==2.13.*",
+  "torch~=2.0.1",
+  "scikit-learn"
+  ]
+
+
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
 
 [project.urls]
 "Homepage" = "https://github.com/Jorgecardenas1/druida_proof_of_concept"
