@@ -1,0 +1,8 @@
+1. Dise;os de cada atomo
+    parametros primitivos
+        - Name
+        - structure (layers, composition)
+        - L1 y L2 las dimensiones de la celda
+        - Margin 
+        - units
+        - 
