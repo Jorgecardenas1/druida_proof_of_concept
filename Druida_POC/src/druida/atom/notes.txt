@@ -1,4 +1,4 @@
-1. Dise;os de cada atomo
+1. Diseos de cada atomo
     parametros primitivos
         - Name
         - structure (layers, composition)

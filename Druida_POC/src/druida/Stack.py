@@ -13,16 +13,6 @@ class Stack:
         stack=datamanager.dataSets("other name",2,3)
         stack.create()
 
-class MetaSurface:
-
-    def __init__(self, size, grid_size, grid_atom):
-        self.size = size
-        self.grid_size = grid_size
-        self.grid_atom=grid_atom
-
-    def create(self):
-        stack=datamanager.dataSets("other name",2,3)
-        stack.create()
 
 class DNN:
     def __init__(self, layers, neuron_matrix, weights, input_layer):

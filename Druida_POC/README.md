@@ -5,12 +5,11 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
+Druida is an artificial intelligence developed support the metasurfaces design process.
 
-- Type some Markdown on the left
-- See HTML in the right
-- ✨Magic ✨
+- Data set generation based on stack-structured meta-atoms
+- Metasurface composition
+- Training and use of generative models to render metasurface designs.
 
 ## Features
 
