@@ -10,7 +10,7 @@ class Stack:
         self.input_layer =  input_layer
 
     def create(self):
-        stack=datamanager.dataSets("other name",2,3)
+        stack=datamanager.dataSets("this is just a change in a string",2,3)
         stack.create()
 
 

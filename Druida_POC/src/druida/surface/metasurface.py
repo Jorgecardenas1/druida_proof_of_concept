@@ -6,6 +6,8 @@ class MetaSurface:
         self.grid_size = grid_size
         self.grid_atom=atom_grid
 
+        pass
+
     def checkKwargArgument(self):
         pass
     
