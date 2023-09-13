@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "druida"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
   { name="Jorge Cardenas", email="jorge.cardenas.l@mail.pucv.cl" },
 ]
@@ -24,7 +24,8 @@ dependencies = [
   "tensorflow==2.13.*",
   "torch~=2.0.1",
   "scikit-learn",
-  "torchvision"
+  "torchvision",
+  "torchsummary"
   ]
 
 
