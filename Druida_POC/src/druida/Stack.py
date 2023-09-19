@@ -1,12 +1,28 @@
 from .DataManager import datamanager
 
-from .setup import inputType
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+  
+class Trainer:
+    
 
+    def __init__(self, learning_rate:float, batch_size:int, epochs:int):
+        self.learning_rate = learning_rate
+        self.batch_size = batch_size
+        self.epochs = epochs
+
+    def training(self, trainFunction,testFunction, train_dataloader, test_dataloader, model, loss_fn, optimizer):
+        for t in range(self.epochs):
+            print(f"Epoch {t+1}\n-------------------------------")
+            trainFunction(train_dataloader, model, loss_fn, optimizer)
+            testFunction(test_dataloader, model, loss_fn)
+        print("Done!")
+    
+  
+    
 class DNN(nn.Module):
 
     def __init__(self, layers):
@@ -17,7 +33,7 @@ class DNN(nn.Module):
         self.architecture=nn.Sequential()
 
         for layer in layers:
-            self.architecture.add_module(list(layer.keys())[0],layer[list(layer.keys())[0]])
+            self.architecture.add_module(layer['name'],layer['layer'])
 
         
 
@@ -44,38 +60,16 @@ class DNN(nn.Module):
     
     def forward(self, input):
 
+        #{"name":"hidden1","layer":nn.Linear(8,120), "type":"hidden", "index",0}
         self.output =  input
-        for value in self.layers:
-            layer=value[list(value.keys())[0]]
-            self.output = layer(self.output)
+        for layer in self.layers:
+            action=layer['layer']
+            self.output = action(self.output)
+                
+                
                 
         return self.output
     
-
-
-    #If we want to use different types of entries as vector
-    def input_modeling(self, object):
-            
-            self.input_type = object['type']
-            self.inputData=object['data']
-
-            if inputType['image'] == self.input_type:
-                flatten = nn.Flatten()
-                self.flat_image = flatten(self.inputData)
-                return self.flat_image
-            
-            elif inputType['vector'] == self.input_type:
-                
-                #Este es un ejemplo randomizando la entrada
-                self.inputTensor=torch.rand(object['size'], dtype=object['torchType'], device=object['device'])
-                return self.inputTensor
-            else:
-                pass
-
-
-
-
-
 
 class Generator:
     def __init__(self, layers, neuron_matrix, weights, input_layer):
