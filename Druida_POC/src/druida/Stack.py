@@ -15,12 +15,31 @@ class Trainer:
         self.epochs = epochs
 
     def training(self, trainFunction,testFunction, train_dataloader, test_dataloader, model, loss_fn, optimizer):
+        acc=0
+        acc_test=0
+        loss=0
+        test_loss=0
+        loss_values = []
+        test_loss_values = []
+        train_acc_hist = []
+        test_acc = []
+
         for t in range(self.epochs):
+            dataiter = iter(train_dataloader)
+            testdataiter = iter(test_dataloader)
+
+
             print(f"Epoch {t+1}\n-------------------------------")
-            trainFunction(train_dataloader, model, loss_fn, optimizer)
-            testFunction(test_dataloader, model, loss_fn)
+            acc,loss=trainFunction(next(dataiter), model, loss_fn, optimizer, t,acc,loss)
+            acc_test,test_loss=testFunction(next(testdataiter), model, loss_fn,len(train_dataloader), t, acc_test,test_loss)
+
+            loss_values.append(loss)
+            test_loss_values.append(test_loss)
+            train_acc_hist.append(acc)
+            test_acc.append(acc_test)
         print("Done!")
-    
+
+        return loss_values,test_loss_values,train_acc_hist, test_acc
   
     
 class DNN(nn.Module):

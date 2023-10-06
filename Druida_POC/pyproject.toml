@@ -4,13 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "druida"
-version = "0.0.6"
+version = "0.0.8"
 authors = [
   { name="Jorge Cardenas", email="jorge.cardenas.l@mail.pucv.cl" },
 ]
 description = "Metasurface-design artificial intelligence"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
