@@ -12,10 +12,14 @@ from torch.utils.data import Dataset
 
 
 class VectorSet(Dataset):
-    def __init__(self, pandas_df):
+    def __init__(self, pandas_df, type='float'):
         super(VectorSet,self).__init__()
 
-        self.vector = torch.tensor(pandas_df.values)
+        if type=='float':
+            print(type)
+            self.vector = torch.tensor(pandas_df.values).type(torch.FloatTensor)
+        else:
+            self.vector = torch.tensor(pandas_df.values)
 
 
     def __len__(self):
@@ -47,6 +51,7 @@ class VectorSet(Dataset):
                 other = torch.randn((), dtype=torch.float64, device=cuda0)
                 tensor.to(other, non_blocking=True) """
 
+                
                 device = torch.device(object['device'])
                 self.tensor = self.vector.to(device, dtype=object['torchType'])
                 return self.tensor
